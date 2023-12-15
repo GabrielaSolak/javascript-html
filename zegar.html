@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Zegar</title>
+        <meta charset="utf-8">
+
+        <style>
+            body{
+                background-color: #0F0F0F;
+            }
+            #zegar{
+                color: #4E4E4E;
+                font-size: 80px;
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                margin-right: -50%;
+                transform: translate(-50%, -50%);
+                border: 1px white;
+            }
+        </style>
+
+    </head>
+    <body>
+        <p id="zegar"></p>
+
+        <script>
+            function zegar_o()
+            {
+                var dzisiaj = new Date();
+            
+                godzina = dzisiaj.getHours();
+                minuta = dzisiaj.getMinutes();
+                if (minuta < 10) minuta = "0" + minuta;
+                sekunda = dzisiaj.getSeconds();
+                if (sekunda < 10) sekunda = "0" + sekunda;
+                document.getElementById("zegar").innerHTML = godzina + ":" + minuta + ":" + sekunda;
+
+                setTimeout("zegar_o()", 1000);
+            }
+            zegar_o();
+        </script>
+    </body>
+</html>

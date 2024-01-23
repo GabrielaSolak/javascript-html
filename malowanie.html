@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Saper</title>
+        <mata charset="utf-8"></mata>
+        <style>
+            *{
+                background-color: #ffffff;
+            }
+            button{
+                width: 10px;
+                height: 10px;
+                text-align: center;
+                background: #000000;
+                border: 1px;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="demo"></p>
+
+        <script>
+            var el = document.getElementById("demo");
+
+            function zmiana_koloru(button)
+            {
+                button.style.backgroundColor = '#ffffff';
+            }
+
+            for(i=0; i<5000; i++)
+            {
+                if(i%100==0 && i!=0)
+                {
+                    document.getElementById('demo').innerHTML += '<br>';
+                }
+
+                var button = document.createElement('button');
+                el.appendChild(button);
+
+                button.setAttribute('onmouseover', 'zmiana_koloru(this)');
+            }
+        </script>
+    </body>
+</html>

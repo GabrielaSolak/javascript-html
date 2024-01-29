@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tablice</title>
+    </head>
+    <body>
+        <script>
+            //Sortowanie
+            console.log("Sortowanie:")
+
+            tablica_slowa = ['cklsahdf', 'ajlks', 'gwhihfds', 'zksjd'];
+            tablica_liczby = [6, 20, 120, 50, 1000]
+            
+            console.log(tablica_slowa.sort()) //sortuje teksty
+            console.log(tablica_slowa.reverse()) //sorowanie od z-a
+            console.log(tablica_slowa.random())
+
+            console.log(tablica_liczby.sort()) //sortuje liczby jako tekst
+
+            tablica_liczby.sort(function(a, b){return a - b}) //sortuje liczby od najmniejszej do najwiekszej
+            console.log(tablica_liczby)
+
+            tablica_liczby.sort(function(a, b){return 0.5 - Math.random()}) //randomowe sortowanie
+            console.log(tablica_liczby)
+        </script>
+    </body>
+</html>

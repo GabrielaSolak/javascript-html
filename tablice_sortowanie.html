@@ -13,7 +13,6 @@
             
             console.log(tablica_slowa.sort()) //sortuje teksty
             console.log(tablica_slowa.reverse()) //sorowanie od z-a
-            console.log(tablica_slowa.random())
 
             console.log(tablica_liczby.sort()) //sortuje liczby jako tekst
 
@@ -22,6 +21,11 @@
 
             tablica_liczby.sort(function(a, b){return 0.5 - Math.random()}) //randomowe sortowanie
             console.log(tablica_liczby)
+
+            //zdefiniowanie wlasna funkcje dla obiektu Array
+            Array.prototype.sortowanie = function(){return this.sort(function(a, b){return a - b})}
+            tablica_0 = [3, 5, 1, 2]
+            console.log('> ' + tablica_0.sortowanie())
         </script>
     </body>
 </html>

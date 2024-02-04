@@ -1,0 +1,480 @@
+<html>
+    <head>
+        <title>Pokonaj smoka</title>
+        <meta charset="utf-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+        <style>
+            *{
+                background-color: #000000;
+                color: #878787;
+                font-family: 'Pixelify Sans', sans-serif;
+            }
+            #t_surowce{
+                float: left;
+                width: 33%;
+            }
+            #t_armia{
+                float: left;
+                width: 33%;
+            }
+            #t_gracz{
+                float: left;
+                width: 33%;
+            }
+            #sekcja_graficzna{
+                clear: both;
+            }
+            #panel_gracza{
+                height: 50%;
+            }
+            #panel_surowce, #panel_armia{
+                height: 37%;
+                margin-bottom: 5%;
+            }
+            #panel_surowce, #panel_armia, #panel_gracza{
+                width: 80%;
+                border: solid;
+            }
+            #panel_dodatki{
+                margin-top: 5%;
+                width: 61%;
+            }
+            #gracz_zdj{
+                height: 20%;
+                width: 20%;
+            }
+            #smoki{
+                border: 2px solid;
+                width: 40%;
+                height: 25%;
+                float: left;
+                margin: 4px;
+                padding: 2%;
+            }
+            #zasady, #walka{
+                border: 2px solid;
+                height: 25%;
+                float: left;
+                margin: 2px;
+                padding: 2%;
+            }
+            #zasady{
+                width: 17%;
+            }
+            #walka{
+                width: 27%;
+            }
+            table{
+                margin: auto;
+                padding: 15px;
+            }
+            h1{
+                text-align: center;
+                border: 3px solid;
+                padding: 8px;
+            }
+            hr{
+                margin-bottom: 5%;
+            }
+            .grafiki{
+                height: 40px;
+                width: 40px;
+                border: 2px solid;
+            }
+            body{
+                border: solid 3px;
+                padding: 4px;
+            }
+            #s_zdj{
+                width: 80px;
+                height: 55px;
+            }
+            .pola_bitwy{
+                width: 30px;
+                height: 30px;
+                background-color: white;
+                border: black 1px;
+                border-radius: 10%;
+                margin: 2px;
+            }
+            #bitwa_smok{
+                height: 30px;
+                width: 30px;
+                background-image: url('smok_walka.png'); 
+                background-size: cover; 
+                background-repeat: no-repeat; 
+                border: black 1px; 
+                border-radius: 10%;
+                margin: 2px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="tytul"><h1>Zbierz armię elfów i pokonaj smoki</h1></div>
+        <div id="sekcja_tabel">
+            <div id="t_gracz"> 
+                <table id="panel_gracza">
+                    <tr>
+                        <td><img src="gracz.png" style="border: solid;"></td>
+                        <td id="nazwa_gracza"><b>Gracz: </b></td>
+                    </tr>
+                    <tr>
+                        <td><img src="gracz/czerwony.png" id="gracz_zdj"> jedzenie</td>
+                        <td id="g_jedzenie">80%</td>
+                        <td><input type="button" value="+" onclick="zw_jedzenie_g()"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="gracz/zielony.png" id="gracz_zdj"> życie</td>
+                        <td id="g_zycie">80%</td>
+                    </tr>
+                    <tr>
+                        <td><img src="gracz/zolty.png" id="gracz_zdj"> siła</td>
+                        <td id="g_sila">10%</td>
+                    </tr>
+                </table>
+                </div>
+
+        <div id="t_surowce">
+        <table id="panel_surowce">
+            <tr>
+                <th>surowiec</th>
+                <th>ilosc</th>
+                <th>zwiększ</th>
+            </tr>
+            <tr>
+                <td>drewno</td>
+                <td id="drewno">4</td>
+                <td><input type="button" value="+" onclick="zw_drewno()"></td>
+            </tr>
+            <tr>
+                <td>pajęcza sieć</td>
+                <td id="siec">0</td>
+                <td><input type="button" value="+" onclick="zw_siec()"></td>
+            </tr>
+            <tr>
+                <td>mięso</td>
+                <td id="mieso">1</td>
+                <td><input type="button" value="+" onclick="zw_mieso()"></td>
+            </tr>
+            <tr>
+                <td>ruszt</td>
+                <td id="posiadanie_rusztu">brak</td>
+                <td><input type="button" value="+" onclick="kup_ruszt()"></td>
+            </tr>
+        </table>
+        </div>
+
+        <div id="t_armia">
+        <table id="panel_armia">
+            <tr>
+                <th>broń</th>
+                <th>ilosc</th>
+                <th>zwiększ</th>
+            </tr>
+            <tr>
+                <td>katapulty</td>
+                <td id="il_katapulty">0</td>
+                <td><input type="button" value="+" onclick="zw_katapulty()"></td>
+            </tr>
+            <tr>
+                <td>łuki</td>
+                <td id="il_luki">0</td>
+                <td><input type="button" value="+" onclick="zw_luki()"></td>
+            </tr>
+            <tr>
+                <th>armia</th>
+                <th>ilosc</th>
+                <th>zwiększ</th>
+            </tr>
+            <tr>
+                <td>łucznicy</td>
+                <td id="il_lucznicy">0</td>
+                <td><input type="button" value="+" onclick="zw_lucznicy()"></td>
+            </tr>
+            <tr>
+                <td>rzołnierze</td>
+                <td id="il_rzolnierze">0</td>
+                <td><input type="button" value="+" onclick="zw_rzolnierze()"></td>
+            </tr>
+            <tr>
+                <td><u><b>łączna siła armi -> </b></u></td>
+                <td colspan="2" id="laczna_sila_armi"><b>1%</b></td>
+            </tr>
+        </table>
+        </div>
+        </div>
+
+        <div>
+            <table id="panel_dodatki">
+                <tr>
+                    <td></td>
+                    <td><img src="dodatki/sunny-mushroom-walk.gif" class="grafiki"></td>
+                    <td><img src="dodatki/fire-ball.gif" class="grafiki"></td>
+                    <td><img src="dodatki/electro-shock.gif" class="grafiki"></td>
+                    <td><img src="dodatki/energy-smack.gif" class="grafiki"></td>
+                    <td><img src="dodatki/slash-circular.gif" class="grafiki"></td>
+                    <td><img src="dodatki/transparent-particles.gif" class="grafiki"></td>
+                    <td><img src="dodatki/sunny-froggy-walk.gif" class="grafiki"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="sekcja_graficzna">
+            <div id="smoki">
+                <button onclick="wybierz_smoka('Amaru')">Amaru</button>
+                <button onclick="wybierz_smoka('Bolla')">Bolla</button><br>
+                <table>
+                    <tr>
+                        <td><img src="smok1.gif" id="s_zdj"></td>
+                        <td id="s_nazwa">Smok: Amaru</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" id="s_opis">Amaru to przedwieczny smok, jego historia sięga czasów nie znanym żadnym istotą. Czy jesteś gotowy na walkę?</td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="Atak()" id="atak">Atakuj!!</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="walka">
+                <p id="tekst_walka" style="text-align: center;">/pole walki/</p>
+                <p id="demo"></p>
+            </div>
+            <div id="zasady">
+                zasady:<br>   /w trakcie budowy/
+            </div>
+        </div>
+
+        <script>
+            il_drewna = 4;
+            il_sieci = 0;
+            il_miesa = 1;
+            ruszt = false;
+
+            katapulty = 0;
+            luki = 0;
+            lucznicy = 0;
+            rzolnierze = 0;
+            sila_armi = 1;
+
+            gracz_jedzenie = 80;
+            gracz_zycie = 80;
+            gracz_sila = 10;
+
+            function zw_drewno()
+            {
+                il_drewna += 1;
+                document.getElementById("drewno").innerHTML = il_drewna;
+                if(il_drewna % 10 == 0)
+                {
+                    gracz_sila += 3;
+                    document.getElementById("g_sila").innerHTML = gracz_sila + "%";
+                    gracz_zycie -= 1;
+                    document.getElementById("g_zycie").innerHTML = gracz_zycie + "%";
+                }
+            }
+            function zw_siec()
+            {
+                il_sieci += 1;
+                document.getElementById("siec").innerHTML = il_sieci;
+            }
+            function zw_mieso()
+            {
+                il_miesa += 1;
+                document.getElementById("mieso").innerHTML = il_miesa;
+            }
+            function zw_jedzenie_g()
+            {
+                if(il_miesa > 4)
+                {
+                    if(ruszt == false)
+                    {
+                        alert("Nie masz rusztu, mieso jest surowe więc tracisz na zdrowi i lekko cię to osłabia. (kup ognisko w dodatkach)");
+                        gracz_jedzenie += 3;
+                        gracz_sila -= 1;
+                        gracz_zycie -= 2;
+                        document.getElementById("g_jedzenie").innerHTML = gracz_jedzenie + "%";
+                        document.getElementById("g_zycie").innerHTML = gracz_zycie + "%";
+                        document.getElementById("g_sila").innerHTML = gracz_sila + "%";
+                        console.log("chyna nie dziala :c");
+                    }
+                    else
+                    {
+                        gracz_jedzenie += 5;
+                        gracz_sila += 1;
+                        document.getElementById("g_jedzenie").innerHTML = gracz_jedzenie + "%";
+                        document.getElementById("g_sila").innerHTML = gracz_sila + "%";
+                        ruszt = false;
+                        document.getElementById('posiadanie_rusztu').innerHTML = 'brak'; 
+                    }
+                    il_miesa -= 3;
+                    document.getElementById('mieso').innerHTML = il_miesa;
+                }
+                else
+                {
+                    alert("Masz za mało mięsa!!")
+                }
+            }
+
+            function zw_katapulty()
+            {
+                if(il_drewna>=20)
+                {
+                    il_drewna -= 20;
+                    sila_armi += 2;
+                    katapulty += 1;
+                    document.getElementById('il_katapulty').innerHTML = katapulty;
+                    document.getElementById('laczna_sila_armi').innerHTML = sila_armi + "%";
+                    document.getElementById('drewno').innerHTML = il_drewna;
+                }
+                else
+                {
+                    alert("Masz za mało drewna by zbudować katapulte (wymagane 20)")
+                }
+            }
+            function zw_luki()
+            {
+                if(il_drewna>=2 && il_sieci>=2)
+                {
+                    il_drewna -= 2;
+                    il_sieci -= 2;
+                    luki += 1;
+                    document.getElementById('drewno').innerHTML = il_drewna;
+                    document.getElementById('siec').innerHTML = il_sieci;
+                    document.getElementById('il_luki').innerHTML = luki;
+                }
+                else
+                {
+                    alert("Masz za mało drewna i pajęczych sieci by zbudować łuk (wymagane 2)")
+                }
+            }
+            function zw_lucznicy()
+            {
+                if(il_miesa>=10 && luki>=5)
+                {
+                    il_miesa -= 10;
+                    luki -= 5;
+                    sila_armi += 5;
+                    lucznicy += 5;
+                    document.getElementById('mieso').innerHTML = il_miesa;
+                    document.getElementById('il_luki').innerHTML = luki;
+                    document.getElementById('laczna_ilosc_armi').innerHTML = sila_armi + '%';
+                    document.getElementById('il_lucznicy').innerHTML = lucznicy;
+                }
+                else if(il_miesa<10)
+                {
+                    alert("Masz za mało mięsa na utrzymanie armi łuczników (wymagane 10)");
+                }
+                else if(luki<5)
+                {
+                    alert("Masz za mało łuków by wytrenować nowych łuczników (wymagane 5)");
+                }
+            }
+            function zw_rzolnierze()
+            {
+                if(il_miesa>=10 && katapulty>=1)
+                {
+                    katapulty -= 1;
+                    il_miesa -= 10;
+                    sila_armi += 5;
+                    rzolnierze += 5;
+                    document.getElementById('mieso').innerHTML = il_miesa;                
+                    document.getElementById('il_katapulty').innerHTML = katapulty;                 
+                    document.getElementById('laczna_sila_armi').innerHTML = sila_armi + '%';                 
+                    document.getElementById('il_rzolnierze').innerHTML = rzolnierze;    
+                }
+                else if(il_miesa<10)
+                {
+                    alert("Masz za mało mięsa na utrzymanie armi rzołnierzy (wymagane 10)");
+                }     
+                else if(katapulty<1)
+                {
+                    alert("Masz na mało katapult by wytrenowach nowych rzołnierzy (wymagana 1)");
+                }    
+            }
+            function kup_ruszt()
+            {
+                if(il_drewna>=5 && ruszt == false)
+                {
+                    ruszt = true;
+                    document.getElementById('posiadanie_rusztu').innerHTML = 'posiadany'; 
+                    il_drewna -= 5;
+                    document.getElementById('drewno').innerHTML = il_drewna;
+                }
+                else if(il_drewna<5)
+                {
+                    alert("Masz za mało drewna na ognisko (wyagane 5)")
+                }
+                else if(ruszt == true)
+                {
+                    alert("Masz już ruszt!")
+                }
+            }
+
+            function smok(nazwa, sila, zdj, opis)
+            {
+                this.nazwa_smoka = nazwa;
+                this.sila_smoka = sila;
+                this.zdj_smoka = zdj;
+                this.opis_smoka = opis;
+                console.log(this.zdj_smoka)
+
+                this.zmiana_smokow = function()
+                {
+                    document.getElementById('s_zdj').src = this.zdj_smoka;
+                    document.getElementById('s_opis').innerHTML = this.opis_smoka;
+                    document.getElementById('s_nazwa').innerHTML = 'Smok: ' + this.nazwa_smoka;
+                    console.log(document.getElementById('s_zdj'))
+                }
+            }
+            
+            function wybierz_smoka(imie_smoka)
+            {
+                if(imie_smoka == 'Amaru')
+                {
+                    var smok1 = new smok('Amaru', 70, "smok1.gif", 'Amaru to przedwieczny smok, jego historia sięga czasów nie znanym żadnym istotą. Czy jesteś gotowy na walkę?')
+                    console.log("super to amaru -> " + smok1.sila_smoka)
+                    smok1.zmiana_smokow();
+                }
+                if(imie_smoka == 'Bolla')
+                {
+                    var smok2 = new smok('Bolla', 50, "smok2.gif", 'Bella to młody smok, jedan niech cię to nie zwiedzie, jest szybka i przebiegła. Czy jesteś gotowy na walkę?')
+                    console.log("super to ten drugi -> " + smok2.sila_smoka)
+                    smok2.zmiana_smokow()
+                }
+            }
+            function Atak()
+            {
+                document.getElementById('tekst_walka').innerHTML = 'Naciskając na pola ustaw swoje wojsko. Bądz rozsądny, nie będzie powrotu!'
+                pole = document.getElementById('demo');
+                for(var i=0; i<21; i++)
+                {
+                    if(i%7==0 && i!=0)
+                    {
+                        document.getElementById('demo').innerHTML += '<br>';
+                    }
+                    if(i==3)
+                    {
+                        _pole = document.createElement('button');
+                        pole.appendChild(_pole);
+                        _pole.setAttribute('id', 'bitwa_smok')
+                    }
+                    else
+                    {
+                        _pole = document.createElement('button');
+                        pole.appendChild(_pole);
+                        _pole.setAttribute('class', 'pola_bitwy')
+
+                        _pole.setAttribute('onclick', 'zmiana_kolorow(this)');
+                    }
+                }
+            }
+            function zmiana_kolorow(button)
+            {
+                button.style.backgroundColor = '#2f2f2f';
+            }
+        </script>
+    </body>
+</html>

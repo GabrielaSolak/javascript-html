@@ -1,0 +1,151 @@
+<html>
+    <head>
+        <title>Pokonaj smoka</title>
+        <meta charset="utf-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div id="tytul"><h1>Zbierz armię elfów i pokonaj smoki</h1></div>
+        <div id="sekcja_tabel">
+            <div id="t_gracz"> 
+                <table id="panel_gracza">
+                    <tr>
+                        <td><img src="gracz.png" style="border: solid;"></td>
+                        <td id="nazwa_gracza"><b>Gracz: </b></td>
+                    </tr>
+                    <tr>
+                        <td><img src="gracz/czerwony.png" id="gracz_zdj"> jedzenie</td>
+                        <td id="g_jedzenie">80%</td>
+                        <td><input type="button" value="+" onclick="zw_jedzenie_g()"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="gracz/zielony.png" id="gracz_zdj"> życie</td>
+                        <td id="g_zycie">80%</td>
+                    </tr>
+                    <tr>
+                        <td><img src="gracz/zolty.png" id="gracz_zdj"> siła</td>
+                        <td id="g_sila">10%</td>
+                    </tr>
+                </table>
+                </div>
+
+        <div id="t_surowce">
+        <table id="panel_surowce">
+            <tr>
+                <th>surowiec</th>
+                <th>ilosc</th>
+                <th>zwiększ</th>
+            </tr>
+            <tr>
+                <td>drewno</td>
+                <td id="drewno">4</td>
+                <td><input type="button" value="+" onclick="zw_drewno()"></td>
+            </tr>
+            <tr>
+                <td>pajęcza sieć</td>
+                <td id="siec">0</td>
+                <td><input type="button" value="+" onclick="zw_siec()"></td>
+            </tr>
+            <tr>
+                <td>mięso</td>
+                <td id="mieso">1</td>
+                <td><input type="button" value="+" onclick="zw_mieso()"></td>
+            </tr>
+            <tr>
+                <td>ruszt</td>
+                <td id="posiadanie_rusztu">brak</td>
+                <td><input type="button" value="+" onclick="kup_ruszt()"></td>
+            </tr>
+        </table>
+        </div>
+
+        <div id="t_armia">
+        <table id="panel_armia">
+            <tr>
+                <th>broń</th>
+                <th>ilosc</th>
+                <th>zwiększ</th>
+            </tr>
+            <tr>
+                <td>katapulty</td>
+                <td id="il_katapulty">0</td>
+                <td><input type="button" value="+" onclick="zw_katapulty()"></td>
+            </tr>
+            <tr>
+                <td>łuki</td>
+                <td id="il_luki">0</td>
+                <td><input type="button" value="+" onclick="zw_luki()"></td>
+            </tr>
+            <tr>
+                <th>armia</th>
+                <th>ilosc</th>
+                <th>zwiększ</th>
+            </tr>
+            <tr>
+                <td>łucznicy</td>
+                <td id="il_lucznicy">0</td>
+                <td><input type="button" value="+" onclick="zw_lucznicy()"></td>
+            </tr>
+            <tr>
+                <td>rzołnierze</td>
+                <td id="il_rzolnierze">0</td>
+                <td><input type="button" value="+" onclick="zw_rzolnierze()"></td>
+            </tr>
+            <tr>
+                <td><u><b>łączna siła armi -> </b></u></td>
+                <td colspan="2" id="laczna_sila_armi"><b>1%</b></td>
+            </tr>
+        </table>
+        </div>
+        </div>
+
+        <div>
+            <table id="panel_dodatki">
+                <tr>
+                    <td></td>
+                    <td><img src="dodatki/sunny-mushroom-walk.gif" class="grafiki"></td>
+                    <td><img src="dodatki/fire-ball.gif" class="grafiki"></td>
+                    <td><img src="dodatki/electro-shock.gif" class="grafiki"></td>
+                    <td><img src="dodatki/energy-smack.gif" class="grafiki"></td>
+                    <td><img src="dodatki/slash-circular.gif" class="grafiki"></td>
+                    <td><img src="dodatki/transparent-particles.gif" class="grafiki"></td>
+                    <td><img src="dodatki/sunny-froggy-walk.gif" class="grafiki"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="sekcja_graficzna">
+            <div id="smoki">
+                <button onclick="wybierz_smoka('Amaru')">Amaru</button>
+                <button onclick="wybierz_smoka('Bolla')">Bolla</button><br>
+                <table>
+                    <tr>
+                        <td><img src="smok1.gif" id="s_zdj"></td>
+                        <td id="s_nazwa">Smok: Amaru</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" id="s_opis">Amaru to przedwieczny smok, jego historia sięga czasów nie znanym żadnym istotą. Czy jesteś gotowy na walkę?</td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="Atak()" id="atak">Atakuj!!</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="walka">
+                <p id="tekst_walka" style="text-align: center;">/pole walki/</p>
+                <p id="demo"></p>
+                <p id="pola_do_obstawienia"></p><button onclick="ostateczna_walka()">Ostateczna walka</button>
+            </div>
+            <div id="zasady">
+                Zasady:<br>
+                Twoim zadaniem jest stać się na tyle silnym i
+                posiadadać tak silną armię by pokonać smoka.<br>
+                Jak będziesz gotowy wybierz smoka i rozsądnie obstaw pola walki.<br>Powodzenia!
+            </div>
+        </div>
+        <script src="skrypt.js"></script>
+    </body>
+</html>

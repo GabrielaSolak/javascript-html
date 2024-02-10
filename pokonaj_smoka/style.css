@@ -1,0 +1,113 @@
+*{
+    background-color: #000000;
+    color: #878787;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+#t_surowce{
+    float: left;
+    width: 33%;
+}
+#t_armia{
+    float: left;
+    width: 33%;
+}
+#t_gracz{
+    float: left;
+    width: 33%;
+}
+#sekcja_graficzna{
+    clear: both;
+}
+#panel_gracza{
+    height: 50%;
+}
+#panel_surowce, #panel_armia{
+    height: 37%;
+    margin-bottom: 5%;
+}
+#panel_surowce, #panel_armia, #panel_gracza{
+    width: 80%;
+    border: solid;
+}
+#panel_dodatki{
+    margin-top: 5%;
+    width: 61%;
+}
+#gracz_zdj{
+    height: 20%;
+    width: 20%;
+}
+#smoki{
+    border: 2px solid;
+    width: 40%;
+    height: 25%;
+    float: left;
+    margin: 4px;
+    padding: 2%;
+}
+#zasady, #walka{
+    border: 2px solid;
+    height: 25%;
+    float: left;
+    margin: 2px;
+    padding: 2%;
+}
+#zasady{
+    width: 17%;
+}
+#walka{
+    width: 27%;
+}
+table{
+    margin: auto;
+    padding: 15px;
+}
+h1{
+    text-align: center;
+    border: 3px solid;
+    padding: 8px;
+}
+hr{
+    margin-bottom: 5%;
+}
+.grafiki{
+    height: 40px;
+    width: 40px;
+    border: 2px solid;
+}
+body{
+    border: solid 3px;
+    padding: 4px;
+}
+#s_zdj{
+    width: 80px;
+    height: 55px;
+}
+.pola_bitwy{
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: black 1px;
+    border-radius: 10%;
+    margin: 2px;
+}
+#bitwa_smok{
+    height: 30px;
+    width: 30px;
+    background-image: url('smok_walka.png'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    border: black 1px; 
+    border-radius: 10%;
+    margin: 2px;
+}
+#koncowy{
+    border: none;
+    text-align: center;
+    font-size: 50px;
+    margin: 10%;
+}
+#prz_koncowy{
+    display: block;
+    margin: auto;
+}

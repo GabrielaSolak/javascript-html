@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            button{
+                background-color: red;
+                border-color: red;
+                border-radius: 20%;
+                height: 60px;
+                width: 60px;
+            }
+        </style>
+    </head>
+    <body>
+        Wynik:<p id="demo">0</p>
+        <button onclick="dodaj_5()"></button>
+        <button onmousedown="dodaj_1()" onmouseup="odejmij_5()"></button>
+        <button onmousemove="dodaj_1()" onclick="odejmij_5()"></button>
+        <button ondblclick="odejmij_5()"></button>
+        <button oncontextmenu="dodaj_5()" onclick="dodaj_1()"></button> <!-- prawy przycisk myszy +5 a lewy +1 -->
+        <button onmousedown="dodaj_5()"></button>
+        <button onmouseleave="zmiana_koloru(this)"></button>
+        
+        <script>
+            pkt = 0;
+            function dodaj_1()
+            {
+                pkt += 1;
+                document.getElementById('demo').innerHTML = pkt;
+            }
+            function dodaj_5()
+            {
+                pkt += 5;
+                document.getElementById('demo').innerHTML = pkt;
+            }
+            function odejmij_1()
+            {
+                pkt -= 1;
+                document.getElementById('demo').innerHTML = pkt;
+            }
+            function odejmij_5()
+            {
+                pkt -= 5;
+                document.getElementById('demo').innerHTML = pkt;
+            }
+            function zmiana_koloru(button)
+            {
+                button.style.backgroundColor = '#ffffff';
+                pkt += 10;
+            }
+        </script>
+    </body>
+</html>

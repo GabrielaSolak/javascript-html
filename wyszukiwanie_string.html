@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <textarea id="area"></textarea><br>
+        Wyszukiwanie: <input type="text" id="wyszukaj"><br>
+        Zamiana: <input type="text" id="zamien"><br>
+        <button onclick="szukaj()">Wyszukaj</button>
+        <button onclick="zamien()">Wyszukaj i zamień</button>
+        <button onclick="naGlobal()">Wyszukaj na globalu</button>
+        <button onclick="usun()">Usun</button>
+        <div id="komunikaty"></div>
+
+        <script>
+            function szukaj()
+            {
+                tekst = document.getElementById('area').value;
+                szukane = document.getElementById('wyszukaj').value;
+                document.getElementById('komunikaty').innerHTML += "pozycja: " + tekst.search(szukane) + "<br>";
+            }
+
+            function zamien()
+            {
+                tekst = document.getElementById('area').value;
+                szukane = document.getElementById('wyszukaj').value;
+                zamiana = document.getElementById('zamien').value;
+                t = tekst.replace(szukane, zamiana);
+                //document.getElementById('komunikaty').innerHTML += t + "<br>";
+                document.getElementById('area').value = t;
+            }
+
+            function naGlobal()
+            {
+                tekst = document.getElementById('area').value;
+                szukane = document.getElementById('wyszukaj').value;
+                zamiana = document.getElementById('zamien').value;
+                t = tekst.replace(szukane/g, zamiana);
+                //document.getElementById('komunikaty').innerHTML += t + "<br>";
+                document.getElementById('area').value = t;
+            }
+
+            function usun()
+            {
+                tekst = document.getElementById('area').value;
+                szukane = document.getElementById('wyszukaj').value;
+                t = tekst.replace(szukane, "");
+                //document.getElementById('komunikaty').innerHTML += t + "<br>";
+                document.getElementById('area').value = t;
+            }
+        </script>
+    </body>
+</html>

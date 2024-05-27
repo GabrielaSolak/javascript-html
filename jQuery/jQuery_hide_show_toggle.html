@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>jQuery</title>
+    </head>
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+            
+            $(".schowek").click(function(){
+                $(".pudelko").slideDown(); //w paramenrach mozna 'slow', 'fast' lub ms
+            })
+
+            $(".pudelko").click(function(){
+                $(".pudelko").slideUp(); // 'swing' lub 'lineal'
+            })
+
+            $(".schowek").click(function(){
+                $(".pudelko").slideToggle() //w paramenrach mozna 'slow', 'fast' lub ms
+            })
+
+            $(".schowek").click(function(){
+                $(".pudelko").slideToggle(4000, function(){
+                    $("tr:odd").hide();
+                })
+            })
+
+        </script>
+    </body>
+</html>
